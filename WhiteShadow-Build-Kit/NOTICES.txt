@@ -1,0 +1,21 @@
+WHITE SHADOW LAUNCHER - THIRD-PARTY NOTICES
+(Please re-verify licence terms before a commercial release; this list is provided in good faith.)
+
+Bundled in the application
+- Python (PSF License) - the runtime packaged inside the app.
+- PyInstaller (GPL-2.0 with the bootloader exception that allows the packaged application to be distributed under any licence) - used to build the executable.
+- pywebview (BSD-3-Clause) - shows the native app window (Windows, macOS).
+- Pillow (MIT-CMU / HPND) - image handling for skins.
+- certifi (MPL-2.0) - CA certificate bundle for HTTPS. Source: https://github.com/certifi/python-certifi
+- Microsoft Edge WebView2 Runtime - installed on Windows when missing, under Microsoft's redistribution terms.
+
+Downloaded by the app at runtime (not redistributed by White Shadow)
+- Minecraft: Java Edition files from Mojang's servers - subject to the Minecraft EULA.
+- Fabric Loader (Apache-2.0) from fabricmc.net.
+- Eclipse Temurin JRE (GPL-2.0 with Classpath Exception) from Adoptium, when Java is not installed.
+- Mods, resource packs and shaders from Modrinth / CurseForge - each under its author's licence and the platform's API terms.
+
+Build tools
+- Inno Setup (free licence, jrsoftware.org) - creates the Windows setup program.
+
+"Minecraft" is a trademark of Mojang Studios. White Shadow is not affiliated with Mojang Studios or Microsoft.

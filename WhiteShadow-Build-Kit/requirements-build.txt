@@ -1,0 +1,5 @@
+# Needed only on the computer that BUILDS the app (players need nothing).
+pyinstaller>=6.0
+pillow>=10.0
+certifi
+pywebview>=5.0   # Windows and macOS builds

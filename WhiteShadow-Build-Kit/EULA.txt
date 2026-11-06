@@ -1,0 +1,17 @@
+WHITE SHADOW LAUNCHER - SOFTWARE LICENCE
+
+By installing or using White Shadow Launcher you agree to these terms.
+
+1. WHAT THIS IS. White Shadow is an independent, unofficial launcher for Minecraft: Java Edition. It is not made, endorsed or approved by Mojang Studios or Microsoft. "Minecraft" is a trademark of Mojang Studios.
+
+2. MINECRAFT. White Shadow does not contain or redistribute Minecraft. It downloads game files directly from Mojang's servers when you press Play. You are responsible for complying with the Minecraft EULA and Usage Guidelines (https://www.minecraft.net/eula), including holding a licence for Minecraft: Java Edition where required.
+
+3. OFFLINE ACCOUNTS. White Shadow uses offline accounts (a username you choose). They work for singleplayer, LAN worlds and servers that allow offline players. They do not prove ownership of Minecraft.
+
+4. THIRD-PARTY CONTENT. Mods, resource packs and shaders are made by other people and remain under their authors' licences. White Shadow does not host them. Mods are programs that run on your computer - install only content you trust.
+
+5. LICENCE TO USE. You may install and use White Shadow on your own devices for personal use. You may not sell it, claim it as your own, or remove the notices in it. Open-source components keep their own licences (see NOTICES.txt).
+
+6. NO WARRANTY. The software is provided "as is", without warranty of any kind. Games and mods can crash and can damage worlds: keep backups. To the extent the law allows, the authors are not liable for loss of data, worlds, accounts or any other damage arising from use of the software.
+
+7. PRIVACY. White Shadow collects no personal data and sends no telemetry. See the Privacy Policy on the website.

@@ -1,0 +1,10 @@
+:root{--bg:#07050d;--p:#0e0a1a;--line:#2a1d4d;--fg:#f1ecff;--dim:#a99bd0;--ac:#7c3aed;--ac2:#a855f7}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(900px 500px at 85% -5%,#5b21b655,transparent 60%),var(--bg);color:var(--fg);font:16px/1.7 "Bahnschrift","Segoe UI Variable Display","Segoe UI",Inter,system-ui,sans-serif}
+a{color:#c4a8ff}:focus-visible{outline:3px solid var(--ac2);outline-offset:3px;border-radius:6px}
+header{background:#0a0614;border-bottom:1px solid var(--line)}nav{max-width:860px;margin:auto;padding:12px 20px;display:flex;align-items:center;gap:18px}
+nav .brand{display:flex;gap:11px;align-items:center;color:var(--fg);text-decoration:none;font-weight:700;font-size:18px;margin-right:auto}nav .brand img{width:36px;height:36px;border-radius:9px}
+nav a.l{color:var(--dim);text-decoration:none;font-weight:600}nav a.l:hover{color:#fff}
+main{max-width:860px;margin:auto;padding:40px 20px 70px}h1{font-size:clamp(28px,5vw,40px);margin:0 0 6px}h2{font-size:21px;margin:34px 0 8px;color:#e4d6ff}.upd{color:var(--dim);margin:0 0 26px}
+p,li{color:#cfc4ec}li{margin-bottom:6px}table{border-collapse:collapse;width:100%;margin:10px 0}td,th{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:#cfc4ec}th{color:#c4a8ff}
+.card{background:var(--p);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+footer{border-top:1px solid var(--line);text-align:center;padding:30px 20px 44px;color:var(--dim);font-size:13px}footer a{margin:0 8px}

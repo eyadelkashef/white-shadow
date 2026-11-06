@@ -1,0 +1,23 @@
+EASIEST (no software on your PC): read CLOUD-BUILD.txt - GitHub builds the exe and publishes the website for you.
+ALTERNATIVE (build on your own Windows PC): follow the steps below.
+
+WHITE SHADOW - BUILD KIT
+========================
+
+You want: WhiteShadow-Setup.exe  (the installer your players download and run)
+
+1. Right-click this ZIP file -> "Extract All..."  (do NOT run anything from inside the zip).
+2. Open the extracted folder and double-click   build.bat
+3. Wait 5-10 minutes (needs internet). The script installs what it needs by itself:
+   its own Python 3.12 and Inno Setup. Nothing else to prepare.
+4. When it says DONE, the folder  OUTPUT  opens:
+      WhiteShadow-Setup.exe     <- the installer for your players
+      WhiteShadow-windows.exe   <- portable version
+5. Put the folder  site  on your web host. Its Download button hands out the setup file.
+
+If something goes wrong, the window shows the last lines of build-log.txt and opens it.
+Send me that log and I will fix it.
+
+Notes
+- Windows may ask permission for the installs; allow them.
+- Windows Security may warn about new unsigned apps - see MARKET_CHECKLIST.md.

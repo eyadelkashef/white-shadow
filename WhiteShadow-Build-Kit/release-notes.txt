@@ -1,0 +1,1 @@
+First public release: native app, setup file for Windows, content browser with automatic dependencies, saved skins, servers, instances and a crash helper.

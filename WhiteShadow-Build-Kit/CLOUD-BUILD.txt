@@ -1,0 +1,36 @@
+GET THE EXE + THE LIVE WEBSITE WITHOUT INSTALLING ANYTHING
+===========================================================
+GitHub's own computers build the Windows installer for you (free). You only click in your browser.
+You do not need Python, Inno Setup, or to run any file on your PC.
+
+1. Go to https://github.com and create a free account (skip if you have one).
+   Click  +  (top right) -> "New repository". Name it:  white-shadow   Choose "Public". Click "Create repository".
+
+2. Unzip WhiteShadow-Build-Kit.zip on your PC (Right-click -> Extract All).
+   On the new repository page click "uploading an existing file".
+   Open the extracted folder, select EVERYTHING inside it (Ctrl+A), drag it into the browser page.
+   (Make sure the folders  .github, site, installer  are included.)
+   Wait until the upload finishes, then click the green "Commit changes" button.
+
+3. Turn on the website:  Settings (top of the repository) -> Pages (left side)
+   -> under "Build and deployment" set Source to:  GitHub Actions.
+
+4. Build the exe:  "Actions" tab -> if asked, click "I understand my workflows, go ahead and enable them"
+   -> click  "release"  in the left list -> "Run workflow" (right side) -> keep version 1.0.0 -> green "Run workflow".
+
+5. Wait about 10-15 minutes until the row has a green tick.
+
+RESULT
+- Your exe:  repository main page -> "Releases" (right side) -> White Shadow v1.0.0 -> download
+      WhiteShadow-Setup.exe   (the installer for your players)
+      WhiteShadow-windows.exe (portable)   + the macOS and Linux files
+- Your website goes live by itself right after the build:
+      https://YOUR-GITHUB-NAME.github.io/white-shadow/
+  Its Download button gives visitors WhiteShadow-Setup.exe. (You can see the address in Settings -> Pages.)
+  If the site is not there yet, go to Actions -> "site" -> Run workflow.
+
+LATER: to publish an update, change nothing but the version: Actions -> release -> Run workflow -> type 1.0.1.
+Optional: put your support email in  site/config.js  (CONTACT_EMAIL) - edit the file on GitHub with the pencil icon.
+
+IF A STEP TURNS RED: click it, copy the red lines and send them to me - I will fix it.
+(The "Windows installer" step is allowed to fail: the portable exe is still published.)

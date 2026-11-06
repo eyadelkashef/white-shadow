@@ -1,0 +1,127 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>White Shadow Launcher - Download the Minecraft launcher</title>
+<meta name="description" content="White Shadow is a fast, modern Minecraft launcher. Download it, run it, play - no Python or setup needed. Mods with automatic dependencies, saved skins, servers and more.">
+<meta name="theme-color" content="#07050d"><link rel="icon" type="image/png" href="assets/favicon.png">
+<meta property="og:title" content="White Shadow Launcher"><meta property="og:description" content="Play / Explore / Dominate. A modern Minecraft launcher for Windows, macOS and Linux."><meta property="og:image" content="assets/og.jpg"><meta property="og:type" content="website">
+<style>
+:root{--bg:#07050d;--p:#0e0a1a;--p2:#171028;--line:#2a1d4d;--fg:#f1ecff;--dim:#a99bd0;--ac:#7c3aed;--ac2:#a855f7;--ok:#22d3a0;--bad:#ff5d73}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:radial-gradient(900px 500px at 85% -5%,#5b21b655,transparent 60%),var(--bg);color:var(--fg);font:16px/1.65 "Bahnschrift","Segoe UI Variable Display","Segoe UI",Inter,system-ui,sans-serif}
+a{color:#c4a8ff}:focus-visible{outline:3px solid var(--ac2);outline-offset:3px;border-radius:6px}
+img{max-width:100%}
+header{position:sticky;top:0;z-index:20;background:#0a0614ee;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{max-width:1120px;margin:auto;padding:10px 20px;display:flex;align-items:center;gap:22px}
+nav .brand{display:flex;gap:11px;align-items:center;color:var(--fg);text-decoration:none;font-weight:700;font-size:18px;margin-right:auto}nav .brand img{width:36px;height:36px;border-radius:9px}
+nav a.l{color:var(--dim);text-decoration:none;font-weight:600;font-size:15px}nav a.l:hover{color:#fff}
+.btn{display:inline-flex;gap:10px;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--p2);color:#fff;padding:12px 22px;border-radius:12px;font:inherit;font-weight:700;text-decoration:none;cursor:pointer;transition:.18s}
+.btn:hover{border-color:var(--ac2);transform:translateY(-2px)}.btn.pri{border:0;background:linear-gradient(135deg,var(--ac),var(--ac2));box-shadow:0 8px 34px #7c3aed77}.btn.pri:hover{filter:brightness(1.12)}.btn.big{padding:18px 38px;font-size:19px;border-radius:14px}
+.btn[aria-disabled=true]{opacity:.45;pointer-events:none;box-shadow:none;background:var(--p2)}
+.hero{position:relative;text-align:center;padding:0 20px 70px}
+.hero .art{height:clamp(240px,34vw,400px);max-width:1180px;margin:0 auto;background:url(assets/hero.jpg) center/cover;-webkit-mask-image:linear-gradient(#000 92%,transparent);mask-image:linear-gradient(#000 92%,transparent)}
+.hero h1{position:absolute;left:-9999px}.hero .cta{margin-top:6px}.hero .sub{color:var(--dim);margin:10px 0 0}.hero .others{margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.pill{border:1px solid var(--line);background:var(--p);color:var(--dim);padding:6px 14px;border-radius:99px;font-size:13px;text-decoration:none}.pill:hover{color:#fff;border-color:var(--ac2)}
+main{max-width:1120px;margin:auto;padding:0 20px}section{padding:64px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(26px,4vw,36px);margin:0 0 8px;letter-spacing:.01em}h2+p{color:var(--dim);margin:0 0 28px;max-width:720px}h3{margin:0 0 6px}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}.card{background:linear-gradient(180deg,#1a1230cc,#120c24cc);border:1px solid var(--line);border-radius:18px;padding:22px}.card p{margin:0;color:var(--dim)}
+.ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:#7c3aed2a;color:#c4a8ff;font-size:22px;margin-bottom:12px}
+.shots{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}.shots figure{margin:0}.shots img{width:100%;border-radius:14px;border:1px solid var(--line);display:block;transition:.2s}.shots a:hover img{border-color:var(--ac2);transform:scale(1.015)}.shots figcaption{color:var(--dim);font-size:14px;margin-top:8px}
+.dl{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}.dl .card.rec{border-color:var(--ac2);box-shadow:0 0 0 1px var(--ac2) inset,0 10px 40px #7c3aed33}.dl .btn{width:100%;margin-top:10px;flex-direction:column;gap:2px}.dl small{font-weight:400;color:#d8c8ff}
+.dl .hash{font:12px/1.4 Consolas,monospace;color:var(--dim);word-break:break-all;margin-top:6px}.tag{font-size:12px;font-weight:700;color:#06201a;background:var(--ok);border-radius:99px;padding:2px 10px;margin-left:8px;vertical-align:middle}
+.steps{counter-reset:s;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}.steps .card{position:relative;padding-top:44px}.steps .card::before{counter-increment:s;content:counter(s);position:absolute;top:-14px;left:20px;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--ac),var(--ac2));display:grid;place-items:center;font-weight:800}
+table{border-collapse:collapse;width:100%}td,th{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}th{color:#c4a8ff;width:150px}
+details{background:var(--p);border:1px solid var(--line);border-radius:14px;padding:4px 18px;margin-bottom:10px}summary{cursor:pointer;font-weight:700;padding:12px 0}details p{color:var(--dim);margin:0 0 14px}
+pre.rel{white-space:pre-wrap;background:var(--p);border:1px solid var(--line);border-radius:12px;padding:14px;color:var(--dim);font:13px/1.55 Consolas,monospace}.note{background:#e0a03014;border:1px solid #e0a03055;color:#ffd78a;border-radius:12px;padding:12px 16px}
+footer{border-top:1px solid var(--line);text-align:center;padding:36px 20px 48px;color:var(--dim);font-size:13px}footer b{display:block;letter-spacing:.34em;color:#9b7ce0;margin-bottom:8px;font-weight:600}
+.thanks{position:fixed;inset:0;background:#000b;display:grid;place-items:center;padding:20px;z-index:50}.thanks[hidden]{display:none}.thanks .box{background:var(--p);border:1px solid var(--ac2);border-radius:20px;max-width:560px;width:100%;padding:28px;box-shadow:0 0 70px #7c3aed66}.thanks h2{font-size:26px}.thanks ol{margin:14px 0 20px;padding-left:22px;color:var(--dim)}.thanks li{margin-bottom:10px}.thanks li b{color:#fff}.dim{color:var(--dim)}
+@media(max-width:760px){nav a.l{display:none}.btn.big{width:100%}}@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style></head><body>
+<header><nav aria-label="Main"><a class="brand" href="#top"><img src="assets/logo.png" alt="">White Shadow</a><a class="l" href="#features">Features</a><a class="l" href="#screens">Screenshots</a><a class="l" href="#install">Install</a><a class="l" href="#faq">FAQ</a><a class="l" href="#changelog">Changelog</a><a class="btn pri" href="#download" style="padding:9px 18px">Download</a></nav></header>
+<div class="hero" id="top"><div class="art" role="img" aria-label="White Shadow - Play, Explore, Dominate"></div><h1>White Shadow Launcher</h1>
+<a class="btn pri big cta" id="main-dl" href="#download" aria-live="polite">Download</a><p class="sub" id="main-sub">Free · No Python or setup needed · Windows, macOS &amp; Linux</p><div class="others" id="others"></div></div>
+<main>
+<section id="features"><h2>Everything you need to play</h2><p>One app that downloads Minecraft, manages your worlds and mods, and keeps your skin on every launch.</p><div class="grid">
+<div class="card"><div class="ico">⚡</div><h3>Play in one click</h3><p>Downloads Minecraft, Fabric and the right Java for you. Nothing to install first.</p></div>
+<div class="card"><div class="ico">🧩</div><h3>Mods with their dependencies</h3><p>Browse Modrinth, pick a version, and White Shadow installs every mod it needs to run. Resource packs and shaders too.</p></div>
+<div class="card"><div class="ico">👕</div><h3>Your skin, saved</h3><p>Keep a library of skins. The one you choose is applied automatically every time you launch.</p></div>
+<div class="card"><div class="ico">📚</div><h3>Instances</h3><p>Separate versions, mods, memory and Java per instance. Duplicate, share (.wsprof) and import setups.</p></div>
+<div class="card"><div class="ico">🖥</div><h3>Servers</h3><p>Save servers, see who is online and join with one click.</p></div>
+<div class="card"><div class="ico">🛟</div><h3>Crash helper</h3><p>If the game stops, White Shadow explains why in plain words and offers a one-click fix.</p></div>
+<div class="card"><div class="ico">🌍</div><h3>12 languages</h3><p>English, العربية, Español, Français, Deutsch, Português, Русский, Türkçe, 中文, 日本語, 한국어, हिन्दी.</p></div>
+<div class="card"><div class="ico">🔒</div><h3>Private</h3><p>No telemetry. Your settings, accounts and worlds stay on your computer.</p></div></div>
+<p class="note" style="margin-top:22px"><b>Good to know:</b> White Shadow uses offline accounts. That works for singleplayer, LAN and servers that allow offline players. It does not replace owning Minecraft, and Microsoft sign-in is not supported yet.</p></section>
+<section id="screens"><h2>See it in action</h2><p>Screenshots of the launcher (sample data).</p><div class="shots">
+<figure><a href="assets/shot-home.jpg"><img loading="lazy" src="assets/shot-home.jpg" alt="Home screen with the Play button and Quick Launch"></a><figcaption>Home: Play, Quick Launch and news</figcaption></figure>
+<figure><a href="assets/shot-mods.jpg"><img loading="lazy" src="assets/shot-mods.jpg" alt="Mod details with versions and dependencies"></a><figcaption>Choose a version and see the dependencies it installs</figcaption></figure>
+<figure><a href="assets/shot-browser.jpg"><img loading="lazy" src="assets/shot-browser.jpg" alt="Content browser with filters"></a><figcaption>Content browser with filters</figcaption></figure>
+<figure><a href="assets/shot-skins.jpg"><img loading="lazy" src="assets/shot-skins.jpg" alt="Saved skins library"></a><figcaption>Saved skins, applied on every launch</figcaption></figure>
+<figure><a href="assets/shot-instance.jpg"><img loading="lazy" src="assets/shot-instance.jpg" alt="Instance page with mods"></a><figcaption>Instance page: content, worlds, gallery, files</figcaption></figure></div></section>
+<section id="download"><h2>Download White Shadow <span id="ver" class="dimv"></span></h2><p id="dl-intro">Choose your system. The download is the whole app - there is nothing else to install.</p><div id="dl-state"></div><div class="dl" id="dl"></div></section>
+<section id="install"><h2>Install in three steps</h2><p>No Python. No command line.</p><div class="steps">
+<div class="card"><h3>Download</h3><p>Pick the file for your system above.</p></div>
+<div class="card"><h3>Open it</h3><p><b>Windows:</b> run the installer (or the portable .exe).<br><b>macOS:</b> unzip, drag <i>WhiteShadow</i> to Applications, right-click → Open the first time.<br><b>Linux:</b> make it executable, then run it.</p></div>
+<div class="card"><h3>Press Play</h3><p>Pick a username, choose an instance and press Play. The first launch downloads the game (about 1 GB).</p></div></div>
+<p class="note" style="margin-top:22px"><b>"Windows protected your PC"?</b> White Shadow is new and not yet code-signed, so Windows SmartScreen may warn on first run. Choose <i>More info → Run anyway</i>. Verify your download with the checksum shown on each download card.</p>
+<h3 style="margin-top:34px">System requirements</h3><table><tr><th>Windows</th><td>Windows 10 or 11, 64-bit. The Microsoft WebView2 component is already part of Windows 11 and recent Windows 10; the app installs it itself if it is missing.</td></tr><tr><th>macOS</th><td>macOS 11 or newer on Apple Silicon (M1 and later).</td></tr><tr><th>Linux</th><td>64-bit desktop Linux with a Chromium-based browser installed (Chrome, Chromium, Edge or Brave); White Shadow opens in its own app window.</td></tr><tr><th>All</th><td>About 2 GB free disk space and an internet connection for the first launch. Java is downloaded automatically.</td></tr></table></section>
+<section id="faq"><h2>Questions</h2><p></p>
+<details><summary>Do I need Python or anything else installed?</summary><p>No. The launcher you download is a complete app. You only need your computer and an internet connection.</p></details>
+<details><summary>Do I need to buy Minecraft?</summary><p>White Shadow runs offline accounts, which work for singleplayer, LAN worlds and servers that allow offline players. Servers that require a purchased account will not accept it. Please support Mojang if you can.</p></details>
+<details><summary>Where are my files?</summary><p>Everything lives in one data folder you can move to another drive in Settings → Storage, including worlds, mods and saved skins.</p></details>
+<details><summary>How do I uninstall it?</summary><p>Windows: Settings → Apps → White Shadow (installer version) or just delete the portable file. Then delete the data folder if you want to remove your worlds as well.</p></details>
+<details><summary>Is it safe?</summary><p>Each download card shows a SHA-256 checksum so you can confirm the file is exactly what was published. The source of the launcher is the single file you can read.</p></details>
+<details><summary>Why does my antivirus or Windows warn me?</summary><p>New, unsigned apps often trigger a first-run warning. Verify the checksum and choose "Run anyway" only if it matches.</p></details></section>
+<section id="changelog"><h2>Changelog</h2><p>What's new in each release.</p><div id="log"><p class="dim">Loading…</p></div></section>
+</main>
+<div class="thanks" id="thanks" hidden role="dialog" aria-modal="true" aria-labelledby="th-t"><div class="box"><h2 id="th-t">Your download has started</h2><p class="dim" id="th-f"></p><ol id="th-s"></ol><button class="btn pri" id="th-x">Got it</button></div></div>
+<footer><b>WHITE SHADOW — BUILT FOR LEGENDS</b><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a><span data-contact></span><br>White Shadow is an unofficial launcher and is not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</footer>
+<script src="config.js"></script>
+<script>
+const $=(q,r=document)=>r.querySelector(q),repo=window.RELEASE_REPO;
+const OS=(()=>{const u=navigator.userAgent,p=(navigator.userAgentData&&navigator.userAgentData.platform)||navigator.platform||"";
+ if(/android|iphone|ipad|ipod/i.test(u)||(/Macintosh/.test(u)&&navigator.maxTouchPoints>1))return"mobile";
+ if(/win/i.test(p)||/Windows/.test(u))return"windows";if(/mac/i.test(p)||/Macintosh/.test(u))return"macos";if(/linux|x11|cros/i.test(p+u))return"linux";return"other"})();
+const NAMES={windows:"Windows",macos:"macOS",linux:"Linux"},MOBILE="White Shadow is for Windows, macOS and Linux computers - open this page on your computer to download.";
+const mb=n=>n>=1048576?(n/1048576).toFixed(1)+" MB":Math.max(1,Math.round(n/1024))+" KB";
+const safe=u=>typeof u==="string"&&(/^downloads\/[\w .\-]+$/.test(u)||/^https:\/\/github\.com\//.test(u));
+function el(t,c,x){const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+/* ---- "download started" panel: what to do next, per system ---- */
+const STEPS={"windows-installer":["Open <b>%F</b> when it finishes (click it in your browser's download list, or find it in your <b>Downloads</b> folder).","If Windows says <b>\"Windows protected your PC\"</b>, click <b>More info → Run anyway</b>. (New apps are not code-signed yet.)","Click <b>Install</b>, then <b>Launch White Shadow</b>. You'll find it in the <b>Start Menu</b> and on your desktop - press Play and you're in."],
+ "windows-portable":["Open <b>%F</b> from your <b>Downloads</b> folder - there is nothing to install.","If Windows warns you, choose <b>More info → Run anyway</b>.","Press Play."],
+ "macos":["Open <b>%F</b> to unzip it, then drag <b>WhiteShadow</b> into <b>Applications</b>.","The first time, <b>right-click → Open</b> (macOS asks because the app isn't notarized yet).","Press Play."],
+ "linux":["Open a terminal in your Downloads folder and run <b>chmod +x %F</b>.","Start it with <b>./%F</b> (a Chromium-based browser must be installed).","Press Play."]};
+let lastFocus=null;
+function showThanks(kind,name){const t=$("#thanks");$("#th-f").textContent=name+" is downloading.";$("#th-s").innerHTML=(STEPS[kind]||STEPS["windows-installer"]).map(x=>"<li>"+x.replace(/%F/g,name.replace(/[<>&]/g,""))+"</li>").join("");lastFocus=document.activeElement;t.hidden=false;$("#th-x").focus()}
+function closeThanks(){$("#thanks").hidden=true;if(lastFocus)lastFocus.focus()}
+$("#th-x").onclick=closeThanks;$("#thanks").onclick=e=>{if(e.target.id==="thanks")closeThanks()};document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#thanks").hidden)closeThanks()});
+function bind(a,kind,name){a.onclick=()=>setTimeout(()=>showThanks(kind,name),400)}
+function setMain(a,label,sub,kind){const m=$("#main-dl");m.textContent=label;$("#main-sub").textContent=sub;if(a&&safe(a.url)){m.href=a.url;m.setAttribute("download","");bind(m,kind,a.name);m.removeAttribute("aria-disabled")}else{m.href="#download";m.removeAttribute("download");m.onclick=null}}
+function soon(msg){$("#dl-state").replaceChildren(el("p","note",msg));setMain(null,"Downloads coming soon","Check back shortly.");$("#log").replaceChildren(el("p","dim","No releases published yet."))}
+/* ---- where the files come from: this site's own downloads/ folder first, GitHub Releases as the fallback ---- */
+async function fromLocal(){try{const r=await fetch("downloads/latest.json",{cache:"no-store"});if(!r.ok)return null;const j=await r.json();
+ return{tag:"v"+j.version,assets:Object.values(j.files||{}).map(x=>({name:x.name,size:x.size,url:x.url,digest:"sha256:"+x.sha256})),sums:j.sums,log:[{title:"White Shadow "+j.version+(j.date?" · "+j.date:""),body:j.notes||"No notes."}]}}catch(e){return null}}
+async function fromGitHub(){if(!repo)return{none:true};let rs;try{const r=await fetch("https://api.github.com/repos/"+repo+"/releases");if(!r.ok)throw 0;rs=(await r.json()).filter(x=>!x.draft)}catch(e){return{error:true}}
+ if(!rs.length)return{none:true};const cur=rs.find(x=>!x.prerelease)||rs[0],A=cur.assets||[],s=A.find(a=>/sha256/i.test(a.name));
+ return{tag:cur.tag_name,assets:A.map(a=>({name:a.name,size:a.size,url:a.browser_download_url,digest:a.digest})),sums:s&&s.browser_download_url,log:rs.slice(0,8).map(r=>({title:(r.name||r.tag_name)+" · "+new Date(r.published_at).toLocaleDateString(),body:(r.body||"No notes.")}))}}
+async function load(){
+ if(OS==="mobile")$("#main-sub").textContent=MOBILE;
+ const rel=(await fromLocal())||(await fromGitHub());
+ if(rel.none)return soon("Downloads are not available yet - the first release hasn't been published.");
+ if(rel.error){const m=el("p","note","We couldn't load the latest release right now. ");const a=el("a",null,"Open the releases page");a.href="https://github.com/"+repo+"/releases";m.append(a,".");$("#dl-state").replaceChildren(m);$("#log").replaceChildren(el("p","dim","Release notes could not be loaded."));return}
+ const A=rel.assets,f=re=>A.find(a=>re.test(a.name)&&!/sha256|sums/i.test(a.name));
+ $("#ver").textContent=rel.tag;
+ const defs=[["windows","Windows",[["windows-installer","Setup file (recommended)",f(/setup.*\.exe$/i),"Installs like any other app"],["windows-portable","Portable .exe",f(/windows.*\.exe$/i),"No install, run from anywhere"]]],["macos","macOS (Apple Silicon)",[["macos","Download for macOS",f(/macos.*\.zip$/i),"Unzip, then drag to Applications"]]],["linux","Linux (x64)",[["linux","Download for Linux",f(/linux/i),"chmod +x, then run"]]]];
+ const box=$("#dl");box.replaceChildren();let primary=null,pk=null;
+ for(const [id,title,items] of defs){const c=el("div","card"+(id===OS?" rec":""));const h=el("h3",null,title);if(id===OS)h.append(el("span","tag","Your system"));c.append(h);
+  for(const [kind,label,a,hint] of items){const first=items[0][0]===kind,b=el("a","btn"+(id===OS&&first?" pri":""));b.append(label);
+   if(a&&safe(a.url)){b.href=a.url;b.setAttribute("download","");b.append(el("small",null,a.name+" · "+mb(a.size)+" · "+hint));bind(b,kind,a.name);if(!primary&&id===OS){primary=a;pk=kind}}else{b.setAttribute("aria-disabled","true");b.href="#download";b.append(el("small",null,"Not in this release"))}
+   c.append(b);if(a&&a.digest)c.append(el("div","hash","SHA-256 "+String(a.digest).replace(/^sha256:/,"")))}
+  box.append(c)}
+ if(rel.sums&&safe(rel.sums)){const p=el("p","dim");p.append("Verify a download: compare its SHA-256 with ");const a=el("a",null,"SHA256SUMS");a.href=rel.sums;p.append(a,". Windows: ",el("code",null,"certutil -hashfile <file> SHA256"),"  ·  macOS/Linux: ",el("code",null,"shasum -a 256 <file>"),".");$("#dl-state").replaceChildren(p)}else $("#dl-state").replaceChildren();
+ if(OS in NAMES&&primary)setMain(primary,"Download for "+NAMES[OS],rel.tag+" · "+mb(primary.size)+" · Free, no Python needed",pk);
+ else if(OS in NAMES)setMain(null,"Download","Not available for "+NAMES[OS]+" in this release.");
+ else setMain(null,"Download","Choose your system below.");
+ if(OS==="mobile")$("#main-sub").textContent=MOBILE;
+ const o=$("#others");o.replaceChildren();for(const k of Object.keys(NAMES))if(k!==OS){const a=el("a","pill","Also for "+NAMES[k]);a.href="#download";o.append(a)}
+ const lg=$("#log");lg.replaceChildren();for(const r of rel.log){const h=el("h3",null,r.title);h.style.marginTop="18px";lg.append(h,el("pre","rel",r.body.trim()))}}
+load();
+(function(){var c=window.CONTACT_EMAIL;document.querySelectorAll("[data-contact]").forEach(function(e){if(c&&/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(c)){e.replaceWith(document.createTextNode(" · "));var a=document.createElement("a");a.href="mailto:"+c;a.textContent="Contact";document.querySelector("footer b").parentNode.insertBefore(a,document.querySelector("footer br"))}else e.remove()})})();
+</script></body></html>
