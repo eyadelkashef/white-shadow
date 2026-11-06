@@ -1,1 +1,87 @@
-
+# Builds the launcher for Windows (installer + portable), macOS and Linux and publishes them as a GitHub Release.
+# Players then download them from the website. Trigger: push a tag like v1.0.0  (git tag v1.0.0 && git push --tags)
+name: release
+on:
+  push: { tags: ["v*"] }
+  workflow_dispatch:                 # lets you start it with one click in the browser (Actions tab -> release -> Run workflow)
+    inputs:
+      version:
+        description: "Version number to publish (for example 1.0.0)"
+        required: true
+        default: "1.0.0"
+permissions: { contents: write }
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: windows-latest, id: windows }
+          - { os: macos-latest, id: macos }
+          - { os: ubuntu-22.04, id: linux }
+    runs-on: ${{ matrix.os }}
+    defaults: { run: { shell: bash } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Stamp version and repository into the app
+        env:
+          INPUT_VERSION: ${{ inputs.version }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then V="$INPUT_VERSION"; elif [ "$GITHUB_REF_TYPE" = "tag" ]; then V="$GITHUB_REF_NAME"; else V="0.0.0"; fi
+          V="${V#v}"
+          echo "APPVER=$V" >> "$GITHUB_ENV"
+          sed -i.bak -e "s|^UPDATE_REPO = \"\"|UPDATE_REPO = \"$GITHUB_REPOSITORY\"|" -e "s|^APP, VER = \"White Shadow\", \"[^\"]*\"|APP, VER = \"White Shadow\", \"$V\"|" WhiteShadowLauncher.py
+          rm -f WhiteShadowLauncher.py.bak
+          grep -n "^UPDATE_REPO\|^APP, VER" WhiteShadowLauncher.py
+      - name: Build (Windows)
+        if: matrix.id == 'windows'
+        run: |
+          python -m pip install pyinstaller pillow certifi pywebview
+          pyinstaller --noconfirm --clean --onefile --noconsole --name WhiteShadow --icon icon.ico --collect-all webview WhiteShadowLauncher.py
+          mv dist/WhiteShadow.exe dist/WhiteShadow-windows.exe
+      - name: Windows installer (optional - the portable .exe still ships if this fails)
+        if: matrix.id == 'windows'
+        continue-on-error: true
+        run: |
+          choco install innosetup -y --no-progress
+          curl -fsSL -o dist/MicrosoftEdgeWebview2Setup.exe "https://go.microsoft.com/fwlink/p/?LinkId=2124703"
+          "/c/Program Files (x86)/Inno Setup 6/ISCC.exe" "//DAppVer=$APPVER" installer.iss
+          rm -f dist/MicrosoftEdgeWebview2Setup.exe
+      - name: Build (macOS)
+        if: matrix.id == 'macos'
+        run: |
+          python -m pip install pyinstaller pillow certifi pywebview
+          pyinstaller --noconfirm --clean --windowed --name WhiteShadow --icon icon.icns --collect-all webview WhiteShadowLauncher.py
+          cd dist && ditto -c -k --keepParent WhiteShadow.app WhiteShadow-macos.zip && rm -rf WhiteShadow WhiteShadow.app
+      - name: Build (Linux)
+        if: matrix.id == 'linux'
+        run: |
+          python -m pip install pyinstaller pillow certifi
+          pyinstaller --noconfirm --clean --onefile --name WhiteShadow WhiteShadowLauncher.py
+          mv dist/WhiteShadow dist/WhiteShadow-linux && chmod +x dist/WhiteShadow-linux
+      - uses: actions/upload-artifact@v4
+        with: { name: "build-${{ matrix.id }}", path: dist/* }
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with: { path: dist, merge-multiple: true }
+      - run: cd dist && sha256sum * > SHA256SUMS && cat SHA256SUMS
+      - name: Work out the release name
+        id: tag
+        env:
+          INPUT_VERSION: ${{ inputs.version }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then T="v${INPUT_VERSION#v}"; else T="$GITHUB_REF_NAME"; fi
+          echo "name=$T" >> "$GITHUB_OUTPUT"
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag.outputs.name }}
+          target_commitish: ${{ github.sha }}
+          name: White Shadow ${{ steps.tag.outputs.name }}
+          files: "dist/*"
+          generate_release_notes: true
+          make_latest: true
