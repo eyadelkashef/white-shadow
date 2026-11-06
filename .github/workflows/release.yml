@@ -1,6 +1,4 @@
 # Builds the launcher for Windows only (installer + portable), and publishes them as a GitHub Release.
-# Players then download them from the website. Trigger: push a tag like v1.0.0  (git tag v1.0.0 && git push --tags)
-name: release
 on:
   push: { tags: ["v*"] }
   workflow_dispatch:                 # lets you start it with one click in the browser (Actions tab -> release -> Run workflow)
@@ -35,7 +33,7 @@ jobs:
           if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then V="$INPUT_VERSION"; elif [ "$GITHUB_REF_TYPE" = "tag" ]; then V="$GITHUB_REF_NAME"; else V="0.0.0"; fi
           V="${V#v}"
           echo "APPVER=$V" >> "$GITHUB_ENV"
-          sed -i.bak -e "s|^UPDATE_REPO = \"\"|UPDATE_REPO = \"$GITHUB_REPOSITORY\"|" -e "s|^APP, VER = \"White Shadow\", \"[^\"]*\"|APP, VER = \"White Shadow\", \"$V\"|" WhiteShadowLauncher.py
+          sed -i.bak -e "s|^UPDATE_REPO = \"\"|UPDATE_REPO = \"$GITHUB_REPOSITORY\"|" -e "s|^APP, VER = \"White Shadow\", \"[^\"]*\"|APP, VER = \"White Shadow\", \"$V\"|" "$GITHUB_WORKSPACE/WhiteShadow-Build-Kit/WhiteShadowLauncher.py"
           rm -f WhiteShadowLauncher.py.bak
           grep -n "^UPDATE_REPO\|^APP, VER" WhiteShadowLauncher.py
       - name: Build (Windows)
@@ -65,7 +63,7 @@ jobs:
           pyinstaller --noconfirm --clean --onefile --name WhiteShadow WhiteShadowLauncher.py
           mv dist/WhiteShadow dist/WhiteShadow-linux && chmod +x dist/WhiteShadow-linux
       - uses: actions/upload-artifact@v4
-        with: { name: "build-${{ matrix.id }}", path: WhiteShadow-Build-Kit/dist/* }
+        with: { name: "build-${{ matrix.id }}", path: dist/* }
   publish:
     needs: build
     runs-on: ubuntu-latest
