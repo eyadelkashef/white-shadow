@@ -2,8 +2,12 @@
 # One-time setup: repo Settings > Pages > Build and deployment > Source: "GitHub Actions".
 name: site
 on:
-  push: { branches: [main], paths: ["site/**"] }
-  workflow_run: { workflows: ["release"], types: [completed] }     # publishes the site automatically after a release is built
+  push:
+    branches: [main]
+    paths: ["site/**", ".github/workflows/pages.yml"]
+  workflow_run:
+    workflows: ["release"]
+    types: [completed]
   workflow_dispatch: {}
 permissions: { contents: read, pages: write, id-token: write }
 concurrency: { group: pages, cancel-in-progress: true }
@@ -14,8 +18,36 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Point the site at this repository's releases
-        run: sed -i "s|window.RELEASE_REPO = \"[^\"]*\"|window.RELEASE_REPO = \"${GITHUB_REPOSITORY}\"|" site/config.js && cat site/config.js
+      - name: Ensure the site files exist and point to this repository's releases
+        shell: bash
+        run: |
+          mkdir -p site
+          if [ ! -f site/config.js ]; then
+            printf 'window.RELEASE_REPO = "%s";\nwindow.RELEASE_TAG = "latest";\n' "$GITHUB_REPOSITORY" > site/config.js
+          else
+            sed -i "s|window.RELEASE_REPO = \"[^\"]*\"|window.RELEASE_REPO = \"${GITHUB_REPOSITORY}\"|" site/config.js
+          fi
+          if [ ! -f site/index.html ]; then
+            cat > site/index.html <<'EOF'
+          <!doctype html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>White Shadow</title>
+          </head>
+          <body>
+            <h1>White Shadow</h1>
+            <p><a id="release" href="#">Download the latest release</a></p>
+            <script src="./config.js"></script>
+            <script>
+              document.getElementById('release').href = `https://github.com/${window.RELEASE_REPO}/releases/latest`;
+            </script>
+          </body>
+          </html>
+          EOF
+          fi
+          cat site/config.js
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with: { path: site }
