@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>White Shadow</title>
+  </head>
+  <body>
+    <h1>White Shadow</h1>
+    <p><a id="release" href="#">Download the latest release</a></p>
+    <script src="./config.js"></script>
+    <script>
+      document.getElementById('release').href = `https://github.com/${window.RELEASE_REPO}/releases/latest`;
+    </script>
+  </body>
+</html>
