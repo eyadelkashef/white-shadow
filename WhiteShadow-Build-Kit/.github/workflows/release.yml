@@ -1,5 +1,5 @@
 
-# Builds the launcher for Windows (installer + portable), macOS and Linux and publishes them as a GitHub Release.
+# Builds the launcher for Windows (installer + portable), and publishes them as a GitHub Release.
 # Players then download them from the website. Trigger: push a tag like v1.0.0  (git tag v1.0.0 && git push --tags)
 name: release
 on:
