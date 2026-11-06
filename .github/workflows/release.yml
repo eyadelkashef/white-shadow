@@ -63,14 +63,22 @@ jobs:
           pyinstaller --noconfirm --clean --onefile --name WhiteShadow WhiteShadowLauncher.py
           mv dist/WhiteShadow dist/WhiteShadow-linux && chmod +x dist/WhiteShadow-linux
       - uses: actions/upload-artifact@v4
-        with: { name: "build-${{ matrix.id }}", path: dist/* }
+        with:
+          name: "build-${{ matrix.id }}"
+          path: ${{ github.workspace }}/WhiteShadow-Build-Kit/dist/*
+          if-no-files-found: error
   publish:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
         with: { path: dist, merge-multiple: true }
-      - run: cd dist && sha256sum * > SHA256SUMS && cat SHA256SUMS
+      - run: |
+          mkdir -p dist
+          cd dist
+          ls -la
+          sha256sum * > SHA256SUMS
+          cat SHA256SUMS
       - name: Work out the release name
         id: tag
         env:
