@@ -1,5 +1,8 @@
 # Builds the launcher for Windows (installer + portable), macOS and Linux and publishes them as a GitHub Release.
 # Players then download them from the website. Trigger: push a tag like v1.0.0  (git tag v1.0.0 && git push --tags)
+steps:
+  - name: Checkout repository
+    uses: actions/checkout@v4
 name: release
 on:
   push: { tags: ["v*"] }
