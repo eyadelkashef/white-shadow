@@ -20,7 +20,10 @@ jobs:
           - { os: macos-latest, id: macos }
           - { os: ubuntu-22.04, id: linux }
     runs-on: ${{ matrix.os }}
-    defaults: { run: { shell: bash } }
+    defaults:
+      run:
+        shell: bash
+        working-directory: WhiteShadow-Build-Kit
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -62,7 +65,7 @@ jobs:
           pyinstaller --noconfirm --clean --onefile --name WhiteShadow WhiteShadowLauncher.py
           mv dist/WhiteShadow dist/WhiteShadow-linux && chmod +x dist/WhiteShadow-linux
       - uses: actions/upload-artifact@v4
-        with: { name: "build-${{ matrix.id }}", path: dist/* }
+        with: { name: "build-${{ matrix.id }}", path: WhiteShadow-Build-Kit/dist/* }
   publish:
     needs: build
     runs-on: ubuntu-latest
